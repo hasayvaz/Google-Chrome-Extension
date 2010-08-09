@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+<style>
+#page { margin: 5px }
+#msg { white-space: nowrap; font-family:Verdana, Sans Serif; font-size:10pt; overflow:visible }
+#info{ font-size:8pt; color:#aaa; font-family: Tahoma; white-space: nowrap; float:right}
+#info a { color: #999; text-decoration: none}
+#info a:hover { color: #99f; text-decoration: underline}
+</style>
+<script>
+function overlay() {
+  chrome.tabs.getSelected(undefined, function(tab) {
+    var val = "" + tab.url;
+    val = val.replace(/^\s+/,""); // START
+    val = val.replace(/\s+$/,""); // END
+    val = val.replace(/^https?:\/\//i,"");
+    val = val.replace(/\/(.*)/,"");
+    val = val.replace(/\:(.*)/,"");
+    urlRoot = "http://www.livepageranks.com/tr/";
+    url = urlRoot + val;
+
+    chrome.tabs.create({"url": url});
+});
+}
+</script>
+</head>
+<body style="background: #eee">
+<div id="page">
+  <div id="msg">
+  </div>
+  <div id="info">
+    <a onclick="overlay()" href="#">LivePageRanksa Ekle</a> | 
+    <a href="http://www.livepageranks.com/tr" target="_blank">Web Sayfas&#305;</a> |
+    <a href="http://www.yh.com.tr" target="_blank">YeniHayat A.Ş</a>
+  </div>
+</div>
+</body>
+</html>
