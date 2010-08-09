@@ -1,0 +1,14 @@
+<script>
+chrome.browserAction.onClicked.addListener(function(tab) {
+    var val = "" + tab.url;
+    val = val.replace(/^\s+/,""); // START
+    val = val.replace(/\s+$/,""); // END
+    val = val.replace(/^https?:\/\//i,"");
+    val = val.replace(/\/(.*)/,"");
+    val = val.replace(/\:(.*)/,"");
+    urlRoot = "http://www.livepageranks.com/tr/";
+    url = urlRoot + val;
+
+    chrome.tabs.create({"url": url});
+});
+</script>
