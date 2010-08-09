@@ -1,0 +1,15 @@
+{
+  "background_page": "background.html",
+  "browser_action": {
+    "default_title": "",
+    "default_icon" : "icon.png",
+    "popup": "popup.html"
+  },
+  "description": "Show Livepageranks statistics of websites",
+  "name": "Livepageranks",
+  "icons": { "128": "icon.png" },
+  "permissions": [
+    "tabs", "http://*.livepageranks/"
+   ],
+  "version": "0.0.1"
+}
