@@ -1,0 +1,20 @@
+<script>
+chrome.browserAction.onClicked.addListener(function(tab) {
+    var m = navigator.language;
+
+    var lang = new Array("ar", "de", "en", "es", "fr", "gr", "it", "ja", "ru", "tr");
+    if(lang.indexOf(m) == -1) {
+        m = "en";
+    }
+    var val = "" + tab.url;
+    val = val.replace(/^\s+/,""); // START
+    val = val.replace(/\s+$/,""); // END
+    val = val.replace(/^https?:\/\//i,"");
+    val = val.replace(/\/(.*)/,"");
+    val = val.replace(/\:(.*)/,"");
+    urlRoot = "http://www.livepageranks.com/";
+    url = urlRoot + m + '/' + val;
+
+    chrome.tabs.create({"url": url});
+});
+</script>
